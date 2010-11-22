@@ -41,7 +41,7 @@ module ElanDesign
 
       def autocomplete_single_field(association, options)
         method = association.name
-        label = options[:label_method] || detect_label_method(object.send(method).to_a)
+        label = options[:label_method] || detect_label_method([object.send(method)])
         value = options[:value_method] || :id
         current_label = object.send(method).nil? ? '' : object.send(method).send(label)
         current_value = object.send(method).nil? ? '' : object.send(method).send(value)
